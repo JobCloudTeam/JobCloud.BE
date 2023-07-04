@@ -1,5 +1,4 @@
-﻿using JobCloud.BE.Application;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace JobCloud.BE.WebApi.Controllers
 {
@@ -7,10 +6,6 @@ namespace JobCloud.BE.WebApi.Controllers
     [ApiController]
     public class OfferController : ControllerBase
     {
-        [HttpGet]
-        public async Task<IEnumerable<object>> GetByLanguage(int languageId)
-        {
-            return await MockResponses.GetMockedOffers();
-        }
+
     }
 }
