@@ -8,14 +8,29 @@ namespace JobCloud.BE.ReadModel.Offers.Db
         {
             // inject dapper
         }
-        public Task<IEnumerable<Offer>> GetJustJoinItOffers()
+        public async Task<IEnumerable<Offer>> GetJustJoinItOffers()
         {
-            throw new NotImplementedException();
+            return GetMockedOffers();
         }
 
-        public Task<IEnumerable<Offer>> GetNoFluffJobsOffers()
+        public async Task<IEnumerable<Offer>> GetNoFluffJobsOffers()
         {
-            throw new NotImplementedException();
+            return GetMockedOffers();
+        }
+
+
+        private IEnumerable<Offer> GetMockedOffers()
+        {
+            var random = new Random();
+            return new List<Offer>()
+            {
+                new Offer{ Id = random.Next(0, 1000)},
+                new Offer{ Id = random.Next(0, 1000)},
+                new Offer{ Id = random.Next(0, 1000)},
+                new Offer{ Id = random.Next(0, 1000)},
+                new Offer{ Id = random.Next(0, 1000)},
+                new Offer{ Id = random.Next(0, 1000)}
+            };
         }
     }
 }

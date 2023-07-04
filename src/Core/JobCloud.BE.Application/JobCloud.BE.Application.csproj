@@ -7,12 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Infrastructure\JobCloud.BE.DB\JobCloud.BE.DB.csproj" />
-    <ProjectReference Include="..\..\JobCloud.BE.Domain\JobCloud.BE.Domain.csproj" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="IoC\" />
+    <ProjectReference Include="..\..\Infrastructure\JobCloud.BE.DB\JobCloud.BE.DB.csproj" />
+    <ProjectReference Include="..\..\JobCloud.BE.Domain\JobCloud.BE.Domain.csproj" />
+    <ProjectReference Include="..\..\JobCloud.BE.ReadModel.Offers\JobCloud.BE.ReadModel.Offers.csproj" />
   </ItemGroup>
 
 </Project>
