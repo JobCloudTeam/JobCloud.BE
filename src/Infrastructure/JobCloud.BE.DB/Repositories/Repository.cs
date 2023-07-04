@@ -62,7 +62,7 @@ namespace JobCloud.BE.DB.Repositories
         {
             try
             {
-                await _dbSet.BulkInsertAsync(entitites);
+                //await _dbSet.BulkInsertAsync(entitites);
             }
             catch (Exception ex)
             {
@@ -88,7 +88,7 @@ namespace JobCloud.BE.DB.Repositories
             var entities = _dbSet.Where(filter);
             try
             {
-                await _dbSet.BulkDeleteAsync(entities);
+                //await _dbSet.BulkDeleteAsync(entities);
             }
             catch (Exception ex)
             {
