@@ -3,8 +3,8 @@ using MediatR;
 
 namespace JobCloud.BE.ReadModel.Offers.Request
 {
-    public interface IGetOffersRequest : IRequest<IEnumerable<Offer>>
+    public class GetJustJoinItOffersRequest : IRequest<IEnumerable<Offer>>
     {
-        public object Filters { get; set; }
+        public object Filters { get; }
     }
 }
