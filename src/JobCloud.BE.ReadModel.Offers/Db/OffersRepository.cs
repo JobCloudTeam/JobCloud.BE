@@ -1,15 +1,27 @@
-﻿using JobCloud.BE.ReadModel.Offers.Model;
+﻿using Dapper;
+using JobCloud.BE.DB;
+using JobCloud.BE.ReadModel.Offers.Model;
 
 namespace JobCloud.BE.ReadModel.Offers.Db
 {
     public class OffersRepository : IOffersRepository
     {
-        public OffersRepository()
+        private readonly DbContext _dbContext;
+
+        public OffersRepository(DbContext dbContext)
         {
-            // inject dapper
+            _dbContext = dbContext;
         }
         public async Task<IEnumerable<Offer>> GetJustJoinItOffers()
         {
+            if (false)  //TODO: CREATE DATABASE
+            {
+                using (var connection = _dbContext.CreateConnection())
+                {
+                    return await connection.QueryAsync<Offer>("some query");
+                    //mapping
+                }
+            }
             return GetMockedOffers();
         }
 
