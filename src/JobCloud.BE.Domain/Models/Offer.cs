@@ -2,7 +2,6 @@
 {
     public class Offer : DomainEntity
     {
-        public int Id { get; set; }
         public string CompanyName { get; set; }
         public string Link { get; set; }
         public ICollection<Technology> Technologies { get; set; }
