@@ -37,7 +37,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobCloud.BE.Domain", "JobCl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReadModels", "ReadModels", "{30E06C39-D3E6-45F8-9EE7-F9C532BC1144}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobCloud.BE.ReadModel.Offers", "JobCloud.BE.ReadModel.Offers\JobCloud.BE.ReadModel.Offers.csproj", "{B06164AB-C44E-47E5-A013-A88C08EFFE85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobCloud.BE.ReadModel.Offers", "JobCloud.BE.ReadModel.Offers\JobCloud.BE.ReadModel.Offers.csproj", "{B06164AB-C44E-47E5-A013-A88C08EFFE85}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{E3498B53-FDDA-4230-B71D-760BFBBA8FA4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{3EA61C49-20C7-40E8-B97A-E080A43D71C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobCloud.BE.Shared", "JobCloud.BE.Shared\JobCloud.BE.Shared.csproj", "{DF5E87FA-E67D-4ED6-A907-C152B77FE89C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +91,10 @@ Global
 		{B06164AB-C44E-47E5-A013-A88C08EFFE85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B06164AB-C44E-47E5-A013-A88C08EFFE85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B06164AB-C44E-47E5-A013-A88C08EFFE85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF5E87FA-E67D-4ED6-A907-C152B77FE89C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF5E87FA-E67D-4ED6-A907-C152B77FE89C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF5E87FA-E67D-4ED6-A907-C152B77FE89C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF5E87FA-E67D-4ED6-A907-C152B77FE89C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -104,6 +114,7 @@ Global
 		{0EEEC1D0-1A5C-4545-ABED-18CFB15DC492} = {D457B16A-DA7A-415B-A561-BA75DA96FF80}
 		{30E06C39-D3E6-45F8-9EE7-F9C532BC1144} = {D457B16A-DA7A-415B-A561-BA75DA96FF80}
 		{B06164AB-C44E-47E5-A013-A88C08EFFE85} = {30E06C39-D3E6-45F8-9EE7-F9C532BC1144}
+		{DF5E87FA-E67D-4ED6-A907-C152B77FE89C} = {3EA61C49-20C7-40E8-B97A-E080A43D71C1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8AA8A38F-0A4D-42BE-95B1-07307DB3867C}
