@@ -2,5 +2,5 @@
 
 namespace JobCloud.BE.Domain.Models
 {
-    public record Technology(Enums.Technology name, Level level);
+    public record Technology(Enums.Technology Name, Level TechnologyLevel);
 }
