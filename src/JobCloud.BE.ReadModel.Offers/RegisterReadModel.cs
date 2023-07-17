@@ -19,7 +19,7 @@ namespace JobCloud.BE.ReadModel.Offers
         }
         public static void RegisterOffersReadModelsEndpoints(this WebApplication app)
         {
-            app.MapGet("/api/readmodel/offers", ([FromServices] IRequestsAggregator requestAggregator, [FromServices] ISender sender) => GetJobOffers(requestAggregator, sender));
+            app.MapGet("/api/readmodel/offers", GetJobOffers);
         }
 
         private static async Task<IEnumerable<Offer>> GetJobOffers(IRequestsAggregator requestsAggregator, ISender sender)
