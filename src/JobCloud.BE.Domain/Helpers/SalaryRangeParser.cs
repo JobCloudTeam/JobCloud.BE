@@ -1,6 +1,6 @@
 ﻿using JobCloud.BE.Domain.Models;
 
-namespace JobCloud.BE.Shared.Helpers
+namespace JobCloud.BE.Domain.Helpers
 {
     public static class SalaryRangeParser
     {

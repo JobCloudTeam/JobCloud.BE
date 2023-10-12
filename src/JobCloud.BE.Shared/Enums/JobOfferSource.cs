@@ -1,4 +1,4 @@
-﻿namespace JobCloud.BE.Domain.Enums
+﻿namespace JobCloud.BE.Shared.Enums
 {
     public enum JobOfferSource
     {
