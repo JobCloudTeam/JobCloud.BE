@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\JobCloud.BE.Application\JobCloud.BE.Application.csproj" />
-    <ProjectReference Include="..\JobCloud.BE.DB.Migrations\JobCloud.BE.Migrations.csproj" />
+    <ProjectReference Include="..\JobCloud.BE.Migrations\JobCloud.BE.Migrations.csproj" />
     <ProjectReference Include="..\JobCloud.BE.ReadModel.Application\JobCloud.BE.ReadModel.Application.csproj" />
   </ItemGroup>
 

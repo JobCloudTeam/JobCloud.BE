@@ -1,4 +1,5 @@
-﻿using JobCloud.BE.Domain.Enums;
+﻿
+using JobCloud.BE.Shared.Enums;
 
 namespace JobCloud.BE.Domain.Models
 {
