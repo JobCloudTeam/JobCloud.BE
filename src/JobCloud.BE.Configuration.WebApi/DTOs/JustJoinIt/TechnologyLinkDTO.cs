@@ -1,4 +1,5 @@
 ﻿using JobCloud.BE.Configuration.Db.Models;
+using JobCloud.BE.Shared.Enums;
 
 namespace JobCloud.BE.Configuration.WebApi.DTOs.JustJoinIt
 {
@@ -15,6 +16,15 @@ namespace JobCloud.BE.Configuration.WebApi.DTOs.JustJoinIt
             return new TechnologyLinkDTO
             {
                 Technology = technologyLink.Technology.ToString(),
+                Link = technologyLink.Link
+            };
+        }
+
+        public static TechnologyLink Parse(this TechnologyLinkDTO technologyLink)
+        {
+            return new TechnologyLink
+            {
+                Technology = TechnologyParser.Parse(technologyLink.Technology),
                 Link = technologyLink.Link
             };
         }

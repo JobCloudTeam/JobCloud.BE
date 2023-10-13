@@ -1,4 +1,4 @@
-﻿using System.Threading;
+﻿using System.ComponentModel;
 
 namespace JobCloud.BE.Shared.Enums
 {

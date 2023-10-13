@@ -26,10 +26,12 @@ namespace JobCloud.BE.Configuration.WebApi.Controllers
             return Ok(technologyLinks.Select(x => x.Parse()));
         }
 
+        [Route("insertLinks")]
         [HttpPost]
-        public ActionResult SetLinksToTechnologies(TechnologyLinkDTO queryParams)
+        public async Task<ActionResult<bool>> SetLinksToTechnologies(IEnumerable<TechnologyLinkDTO> queryParams)
         {
-            return Ok("XD");
+            var technologies = queryParams.Select(x => x.Parse());
+            return await _justJoinItRepository.UpdateTechnologyLinks(technologies);
         }
 
     }

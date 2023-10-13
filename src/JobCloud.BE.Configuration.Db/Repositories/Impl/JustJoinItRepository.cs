@@ -25,5 +25,27 @@ namespace JobCloud.BE.Configuration.Db.Repositories.Impl
                 return technologies;
             }
         }
+
+        public async Task<bool> UpdateTechnologyLinks(IEnumerable<TechnologyLink> technologyLinks)
+        {
+            try
+            {
+                using (var connection = _dbConnectionFactory.Connection)
+                {
+                    await connection.ExecuteAsync(Sql.Queries.UpdateTechnologyLinks,
+                        technologyLinks.Select(x => new
+                        {
+                            Technology = x.Technology.ToString(),
+                            Link = x.Link
+                        }));
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //logger
+                return false;
+            }
+        }
     }
 }

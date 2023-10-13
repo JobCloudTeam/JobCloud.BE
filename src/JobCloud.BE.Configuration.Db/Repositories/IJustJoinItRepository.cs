@@ -5,5 +5,7 @@ namespace JobCloud.BE.Configuration.Db.Repositories
     public interface IJustJoinItRepository
     {
         Task<IEnumerable<TechnologyLink>> GetTechnologyLinks();
+
+        Task<bool> UpdateTechnologyLinks(IEnumerable<TechnologyLink> technologyLinks);
     }
 }
