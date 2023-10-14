@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\JobCloud.BE.Configuration.Db\JobCloud.BE.Configuration.Db.csproj" />
     <ProjectReference Include="..\JobCloud.BE.Shared\JobCloud.BE.Shared.csproj" />
   </ItemGroup>
 

@@ -13,6 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\JobCloud.BE.Shared\JobCloud.BE.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="SQL\Queries.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
