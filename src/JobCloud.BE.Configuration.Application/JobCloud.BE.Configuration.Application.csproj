@@ -6,4 +6,18 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="IoC\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="11.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JobCloud.BE.Configuration.Db\JobCloud.BE.Configuration.Db.csproj" />
+    <ProjectReference Include="..\JobCloud.BE.Shared\JobCloud.BE.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
