@@ -1,4 +1,5 @@
 using JobCloud.BE.Configuration.Application.DTOs;
+using JobCloud.BE.Configuration.Application.JustJoinIt.Commands.InsertDivNames;
 using JobCloud.BE.Configuration.Application.JustJoinIt.Commands.InsertTechnologyLinks;
 using JobCloud.BE.Configuration.Application.JustJoinIt.Queries.GetDivNames;
 using JobCloud.BE.Configuration.Application.JustJoinIt.Queries.GetTechnologyLinks;
@@ -36,7 +37,7 @@ namespace JobCloud.BE.Configuration.WebApi.Controllers
 
         [Route("insertLinks")]
         [HttpPost]
-        public async Task<ActionResult<bool>> SetLinksToTechnologies(IEnumerable<TechnologyLinkDto> queryParams)
+        public async Task<ActionResult<InsertTechnologyLinksCommandResponse>> SetLinksToTechnologies(IEnumerable<TechnologyLinkDto> queryParams)
         {
             var response = await _sender.Send(new InsertTechnologyLinksCommand { TechnologyLinks = queryParams });
             return Ok(response);
@@ -47,6 +48,15 @@ namespace JobCloud.BE.Configuration.WebApi.Controllers
         public async Task<ActionResult<GetDivNamesQueryResponse>> GetDivNames()
         {
             var response = await _sender.Send(new GetDivNamesQuery());
+            return Ok(response);
+        }
+
+
+        [Route("insertDivNames")]
+        [HttpPost]
+        public async Task<ActionResult> SetDivNames(IEnumerable<DivNameDto> queryParams)
+        {
+            var response = await _sender.Send(new InsertDivNamesCommand { DivNames = queryParams });
             return Ok(response);
         }
     }

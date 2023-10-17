@@ -9,5 +9,7 @@ namespace JobCloud.BE.Configuration.Db.Repositories
         Task<bool> UpdateTechnologyLinks(IEnumerable<TechnologyLink> technologyLinks);
 
         Task<IEnumerable<DivName>> GetDivNames();
+
+        Task<bool> UpdateDivNames(IEnumerable<DivName> divNames);
     }
 }

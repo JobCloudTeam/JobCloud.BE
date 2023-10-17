@@ -85,6 +85,17 @@ namespace JobCloud.BE.Configuration.Db.Sql {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to UPDATE [jobClouddb_dev].[jjit].[divName]
+        ///SET Name = @Name
+        ///WHERE Div = @Div.
+        /// </summary>
+        internal static string UpdateDivNames {
+            get {
+                return ResourceManager.GetString("UpdateDivNames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to UPDATE [jobClouddb_dev].[jjit].[tchlink]
         ///SET Link = @Link
         ///WHERE Technology = @Technology.

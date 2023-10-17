@@ -65,5 +65,30 @@ namespace JobCloud.BE.Configuration.Db.Repositories.Impl
                 return divNames;
             }
         }
+
+        public async Task<bool> UpdateDivNames(IEnumerable<DivName> divNames)
+        {
+            try
+            {
+                using (var connection = _dbConnectionFactory.Connection)
+                {
+                    await connection.ExecuteAsync(Sql.Queries.UpdateDivNames,
+                        divNames.Select(x => new
+                        {
+                            Div = x.Div.ToString(),
+                            Name = x.Name
+                        }));
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("[JobCloud][Configuration] request: {source} error: {error} stackTrace: {stackTrace}",
+                    nameof(UpdateTechnologyLinks),
+                    ex.Message,
+                    ex.StackTrace);
+                return false;
+            }
+        }
     }
 }
