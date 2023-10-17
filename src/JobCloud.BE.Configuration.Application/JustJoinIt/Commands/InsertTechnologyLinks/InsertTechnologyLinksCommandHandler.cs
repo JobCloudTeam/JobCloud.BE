@@ -1,4 +1,5 @@
-﻿using JobCloud.BE.Configuration.Application.JustJoinIt.Queries.GetTechnologyLinks;
+﻿using JobCloud.BE.Configuration.Application.DTOs;
+using JobCloud.BE.Configuration.Application.JustJoinIt.Queries.GetTechnologyLinks;
 using JobCloud.BE.Configuration.Db.Repositories;
 using JobCloud.BE.Shared.Enums;
 using MediatR;
@@ -21,32 +22,25 @@ namespace JobCloud.BE.Configuration.Application.JustJoinIt.Commands.InsertTechno
         {
             _logger.LogInformation("[JobCloud][Configuration] Start request {source}",
                 nameof(GetTechnologylinksQueryHandler));
-        }
 
-        private async Task Validate(InsertTechnologyLinksCommand request)
-        {
-            var technologiesCore = Enum.GetNames<Technology>();
-            foreach(var tech in request.TechnologyLinks.Select(x => x.Technology))
+            var result = new InsertTechnologyLinksCommandResponse();
+
+            var validatedLinks = await Validate(request);
+
+            if (validatedLinks != null)
             {
-                technologiesCore.Any(x => x == tech);
+                var status = await _repository.UpdateTechnologyLinks(validatedLinks.Select(x => x.Parse()));
+
+                result.Status = status == true ? "Success" : "Failed";
             }
 
-            /*
-             
-            public class Program
-{
-	public static void Main()
-	{
-		List<int> list1 = new List<int>() {1,2,3,4,5};
-		List<int> list2 = new List<int>() {1,2,8};
-		
-		var z = list2.Where(x => !list1.Any(y => y == x)).ToList();
-		
-		z.ForEach(x => Console.WriteLine(x));
-	}
-}
+            return result;
+        }
 
-             */
+        private async Task<IEnumerable<TechnologyLinkDto>> Validate(InsertTechnologyLinksCommand request)
+        {
+            var technologiesCore = Enum.GetNames<Technology>();
+            return request.TechnologyLinks.Where(x => !technologiesCore.Any(y => y.Equals(x.Technology)));
         }
     }
 }
