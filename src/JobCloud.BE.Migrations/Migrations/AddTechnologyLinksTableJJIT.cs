@@ -25,11 +25,10 @@ namespace JobCloud.BE.Migrations.Migrations
 
 
                 Enum.GetNames<Technology>().ToList().ForEach(x =>
-                Insert
-                    .IntoTable("tchlink")
-                    .InSchema("jjit")
-                    .Row(new { technology = x })
-                );
+                    Insert
+                        .IntoTable("tchlink")
+                        .InSchema("jjit")
+                        .Row(new { technology = x }));
             }
         }
     }

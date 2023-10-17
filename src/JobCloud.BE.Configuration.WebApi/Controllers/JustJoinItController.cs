@@ -1,8 +1,8 @@
 using JobCloud.BE.Configuration.Application.DTOs;
+using JobCloud.BE.Configuration.Application.JustJoinIt.Commands.InsertTechnologyLinks;
+using JobCloud.BE.Configuration.Application.JustJoinIt.Queries.GetDivNames;
 using JobCloud.BE.Configuration.Application.JustJoinIt.Queries.GetTechnologyLinks;
 using JobCloud.BE.Configuration.Db.Repositories;
-using JobCloud.BE.Configuration.Db.Repositories.Impl;
-using JobCloud.BE.Configuration.WebApi.DTOs.JustJoinIt;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -38,9 +38,16 @@ namespace JobCloud.BE.Configuration.WebApi.Controllers
         [HttpPost]
         public async Task<ActionResult<bool>> SetLinksToTechnologies(IEnumerable<TechnologyLinkDto> queryParams)
         {
-            var technologies = queryParams.Select(x => x.Parse());
-            return await _justJoinItRepository.UpdateTechnologyLinks(technologies);
+            var response = await _sender.Send(new InsertTechnologyLinksCommand { TechnologyLinks = queryParams });
+            return Ok(response);
         }
 
+        [Route("getDivNames")]
+        [HttpGet]
+        public async Task<ActionResult<GetDivNamesQueryResponse>> GetDivNames()
+        {
+            var response = await _sender.Send(new GetDivNamesQuery());
+            return Ok(response);
+        }
     }
 }

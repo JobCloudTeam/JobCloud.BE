@@ -54,5 +54,16 @@ namespace JobCloud.BE.Configuration.Db.Repositories.Impl
                 return false;
             }
         }
+
+        public async Task<IEnumerable<DivName>> GetDivNames()
+        {
+            using (var connection = _dbConnectionFactory.Connection)
+            {
+                var divNames = await connection.QueryAsync<DivName>(Sql.Queries.GetDivNames,
+                    commandType: CommandType.Text);
+
+                return divNames;
+            }
+        }
     }
 }
