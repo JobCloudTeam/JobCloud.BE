@@ -61,6 +61,18 @@ namespace JobCloud.BE.Configuration.Db.Sql {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT [name] AS Name
+        ///    ,[div] AS Div
+        ///FROM [jobClouddb_dev].[jjit].[divNames]
+        ///.
+        /// </summary>
+        internal static string GetDivNames {
+            get {
+                return ResourceManager.GetString("GetDivNames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT [technology] AS Technology
         ///    ,[link] AS Link
         ///FROM [jobClouddb_dev].[jjit].[tchlink]
@@ -69,6 +81,17 @@ namespace JobCloud.BE.Configuration.Db.Sql {
         internal static string GetTechnologyLinks {
             get {
                 return ResourceManager.GetString("GetTechnologyLinks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE [jobClouddb_dev].[jjit].[divName]
+        ///SET Name = @Name
+        ///WHERE Div = @Div.
+        /// </summary>
+        internal static string UpdateDivNames {
+            get {
+                return ResourceManager.GetString("UpdateDivNames", resourceCulture);
             }
         }
         
