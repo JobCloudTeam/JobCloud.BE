@@ -1,3 +1,4 @@
+using JobCloud.BE.Configuration.Application.IoC;
 using JobCloud.BE.Configuration.Db.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddApplicationServices();
 
 
 var connectionString = builder.Configuration.GetConnectionString("JBCConnectionString");

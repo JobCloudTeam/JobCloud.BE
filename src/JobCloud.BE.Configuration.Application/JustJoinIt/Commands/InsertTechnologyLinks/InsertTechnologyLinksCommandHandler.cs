@@ -40,7 +40,8 @@ namespace JobCloud.BE.Configuration.Application.JustJoinIt.Commands.InsertTechno
         private async Task<IEnumerable<TechnologyLinkDto>> Validate(InsertTechnologyLinksCommand request)
         {
             var technologiesCore = Enum.GetNames<Technology>();
-            return request.TechnologyLinks.Where(x => !technologiesCore.Any(y => y.Equals(x.Technology)));
+
+            return request.TechnologyLinks.Where(x => technologiesCore.Any(y => y.Equals(x.Technology)));
         }
     }
 }

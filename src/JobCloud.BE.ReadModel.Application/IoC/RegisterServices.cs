@@ -5,6 +5,7 @@ using JobCloud.BE.ReadModel.Db.IoC;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace JobCloud.BE.ReadModel.Application.IoC
 {
@@ -12,6 +13,7 @@ namespace JobCloud.BE.ReadModel.Application.IoC
     {
         public static IServiceCollection AddReadModelServices(this IServiceCollection services)
         {
+            services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddScoped<IRequestsAggregator, RequestsAggregator>();
             services.AddReadModelDbServices();
 

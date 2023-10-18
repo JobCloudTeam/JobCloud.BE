@@ -39,7 +39,7 @@ namespace JobCloud.BE.Configuration.Application.JustJoinIt.Commands.InsertDivNam
         private async Task<IEnumerable<DivNameDto>> Validate(InsertDivNamesCommand request)
         {
             var divsCore = Enum.GetNames<Div>();
-            return request.DivNames.Where(x => !divsCore.Any(y => y.Equals(x.Div)));
+            return request.DivNames.Where(x => divsCore.Any(y => y.Equals(x.Div)));
         }
     }
 }

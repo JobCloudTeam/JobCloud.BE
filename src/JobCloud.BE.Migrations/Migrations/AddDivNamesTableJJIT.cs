@@ -3,6 +3,7 @@ using JobCloud.BE.Shared.Enums.JustJoinIt;
 
 namespace JobCloud.BE.Migrations.Migrations
 {
+    [Tags("JobCloud")]
     [Migration(202310171750)]
     public class AddDivNamesTableJJIT : Migration
     {
