@@ -6,6 +6,8 @@
         Experience,
         OperatingMode,
         TechStack,
+        Salary,
+        Company
     }
 
     public static class DivParser
