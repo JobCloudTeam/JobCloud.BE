@@ -1,9 +1,7 @@
 ﻿using Microsoft.Playwright;
 using System.Collections.Concurrent;
-using System.Reflection;
-using System.Threading;
 
-namespace ScrapperTesting;
+namespace PlayW;
 public static class Program
 {
     public static async Task Main()
@@ -22,7 +20,7 @@ public static class Program
     private async static Task GetAllLinks()
     {
         var baseUrl = "https://justjoin.it";
-        var location = "/all-locations/";
+        var location = "/all-locations";
         var technologies = new List<string>
         {
             "java", //1
@@ -133,30 +131,5 @@ public static class Program
         }
 
         return allElements;
-    }
-    private static async Task<List<List<string>>> ChungBy(this List<string> array, int chunksCount)
-    {
-        double size = (double)array.Count / (double)chunksCount;
-        size = Math.Round(size);
-
-        var chunks = new List<List<string>>();
-
-        for (int i = 0; i < chunksCount; i++)
-        {
-            var chunk = new List<string>();
-            for (int j = i * (int)size, k = 0; k < size; j++, k++)
-            {
-                try
-                {
-                    chunk.Add(array[j]);
-                }
-                catch (ArgumentOutOfRangeException)
-                {
-                    break;
-                }
-            }
-            chunks.Add(chunk);
-        }
-        return chunks;
     }
 }
