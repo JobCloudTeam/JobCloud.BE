@@ -11,5 +11,10 @@ namespace JobCloud.BE.JustJoinIt.Host.Controllers
         {
             _sender = sender;
         }
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
     }
 }
