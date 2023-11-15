@@ -27,37 +27,21 @@ namespace JobCloud.BE.Configuration.WebApi.Controllers
             _justJoinItRepository = justJoinItRepository;
         }
 
-        [Route("currentLinks")]
+        [Route("technologies")]
         [HttpGet]
-        public async Task<ActionResult<GetTechnologyLinksQueryResponse>> GetCurrentLinksToTechnologies()
+        public async Task<ActionResult<IEnumerable<string>>> GetTechnologies()
         {
-            var response = await _sender.Send(new GetTechnologyLinksQuery());
+            var response = Enumerable.Empty<string>();
             return Ok(response);
         }
 
-        [Route("insertLinks")]
+
+        [Route("technologies")]
         [HttpPost]
-        public async Task<ActionResult<InsertTechnologyLinksCommandResponse>> SetLinksToTechnologies(IEnumerable<TechnologyLinkDto> queryParams)
+        public async Task<ActionResult> SetTechnologies()
         {
-            var response = await _sender.Send(new InsertTechnologyLinksCommand { TechnologyLinks = queryParams });
-            return Ok(response);
+            return Ok();
         }
 
-        [Route("getDivNames")]
-        [HttpGet]
-        public async Task<ActionResult<GetDivNamesQueryResponse>> GetDivNames()
-        {
-            var response = await _sender.Send(new GetDivNamesQuery());
-            return Ok(response);
-        }
-
-
-        [Route("insertDivNames")]
-        [HttpPost]
-        public async Task<ActionResult> SetDivNames(IEnumerable<DivNameDto> queryParams)
-        {
-            var response = await _sender.Send(new InsertDivNamesCommand { DivNames = queryParams });
-            return Ok(response);
-        }
     }
 }
