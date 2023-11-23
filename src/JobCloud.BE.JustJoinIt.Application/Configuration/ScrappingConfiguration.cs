@@ -2,7 +2,7 @@
 {
     public static class ScrappingConfiguration
     {
-        public static string BaseUrl { get; } = "https://justjoin.it/all-locations";
+        public static string BaseUrl { get; } = "https://justjoin.it";
         public static IEnumerable<string> Technologies { get; } = new List<string>()
             {
                 "javascript",

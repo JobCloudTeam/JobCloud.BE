@@ -58,6 +58,7 @@ public static class Program
         await Parallel.ForEachAsync(technologies, options, async (tech, token) =>
         {
             var result = await GetTechnologyOffers(web, baseUrl, location, tech);
+            Console.WriteLine("adding links");
             result.Values.ToList().ForEach(x => links.Add(x));
         });
 
@@ -116,6 +117,7 @@ public static class Program
         await Parallel.ForEachAsync(links, options, async (link, token) =>
         {
             var result = await ScrapOffer(link);
+            Console.WriteLine("adding offer");
             offers.Add(result);
         });
 

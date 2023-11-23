@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using JobCloud.BE.JustJoinIt.Application.Write.ScrapOffers;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JobCloud.BE.JustJoinIt.Host.Controllers
@@ -11,10 +12,13 @@ namespace JobCloud.BE.JustJoinIt.Host.Controllers
         {
             _sender = sender;
         }
-<<<<<<< Updated upstream
-=======
 
-
->>>>>>> Stashed changes
+        [HttpPost]
+        [Route("/scrappOffers")]
+        public async Task<IActionResult> ScrappOffers()
+        {
+            var response = await _sender.Send(new ScrapOffersRequest());
+            return Ok(response);
+        }
     }
 }
