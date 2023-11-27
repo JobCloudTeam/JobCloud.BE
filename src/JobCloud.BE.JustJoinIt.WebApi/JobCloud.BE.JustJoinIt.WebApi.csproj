@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\JobCloud.BE.JustJoinIt.Application\JobCloud.BE.JustJoinIt.Application.csproj" />
+    <ProjectReference Include="..\JobCloud.BE.JustJoinIt.Db\JobCloud.BE.JustJoinIt.Db.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿namespace JobCloud.BE.JustJoinIt.Application.Models
+﻿namespace JobCloud.BE.JustJoinIt.Core.Models
 {
     public class Offer
     {

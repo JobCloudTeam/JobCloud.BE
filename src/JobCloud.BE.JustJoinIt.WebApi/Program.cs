@@ -1,4 +1,5 @@
 using JobCloud.BE.JustJoinIt.Application.IoC;
+using JobCloud.BE.JustJoinIt.Db.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddApplicationServices();
+builder.Services.AddDbServices();
 
 var app = builder.Build();
 

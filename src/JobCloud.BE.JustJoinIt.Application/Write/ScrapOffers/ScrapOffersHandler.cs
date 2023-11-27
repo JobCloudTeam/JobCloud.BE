@@ -1,4 +1,6 @@
 ﻿using JobCloud.BE.JustJoinIt.Application.Write.Services;
+using JobCloud.BE.JustJoinIt.Core.Models;
+using JobCloud.BE.JustJoinIt.Db.Repositories;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
@@ -9,11 +11,13 @@ namespace JobCloud.BE.JustJoinIt.Application.Write.ScrapOffers
     {
         private readonly IOfferUrlScrapperService _offerUrlScrapperService;
         private readonly ILogger<ScrapOffersHandler> _logger;
+        private readonly IOfferRepository _offerRepository;
 
-        public ScrapOffersHandler(IOfferUrlScrapperService offerUrlScrapperService, ILogger<ScrapOffersHandler> logger)
+        public ScrapOffersHandler(IOfferUrlScrapperService offerUrlScrapperService, ILogger<ScrapOffersHandler> logger, IOfferRepository offerRepository)
         {
             _offerUrlScrapperService = offerUrlScrapperService;
             _logger = logger;
+            _offerRepository = offerRepository;
         }
 
         public async Task<ScrapOffersResponse> Handle(ScrapOffersRequest request, CancellationToken cancellationToken)
@@ -31,10 +35,13 @@ namespace JobCloud.BE.JustJoinIt.Application.Write.ScrapOffers
                 response.ExecutionTime = watch.Elapsed;
                 response.Status = "Success";
                 response.Offers = offers;
+                //TODO: change active offers status to false
+
+                await _offerRepository.InsertOffers(offers);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                _logger.LogInformation("[JustJoinIt] {source} Error: {error}",
+                _logger.LogError("[JustJoinIt] {source} Error: {error}",
                     nameof(ScrapOffersHandler), ex.ToString());
 
                 response.Status = "Failed";

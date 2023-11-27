@@ -1,4 +1,4 @@
-﻿using JobCloud.BE.JustJoinIt.Application.Models;
+﻿using JobCloud.BE.JustJoinIt.Core.Models;
 
 namespace JobCloud.BE.JustJoinIt.Application.Write.Services
 {

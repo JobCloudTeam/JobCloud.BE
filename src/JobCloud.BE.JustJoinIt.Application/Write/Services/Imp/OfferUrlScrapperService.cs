@@ -1,6 +1,6 @@
 ﻿using HtmlAgilityPack;
 using JobCloud.BE.JustJoinIt.Application.Configuration;
-using JobCloud.BE.JustJoinIt.Application.Models;
+using JobCloud.BE.JustJoinIt.Core.Models;
 using JobCloud.BE.Shared.Models;
 using System.Collections.Concurrent;
 
