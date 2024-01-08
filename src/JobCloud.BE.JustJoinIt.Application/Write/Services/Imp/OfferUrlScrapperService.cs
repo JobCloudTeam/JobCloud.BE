@@ -102,8 +102,15 @@ namespace JobCloud.BE.JustJoinIt.Application.Write.Services.Imp
 
             await Parallel.ForEachAsync(urls, options, async (url, token) =>
             {
-                var result = await ScrapOffer(url);
-                offers.Add(result);
+                try
+                {
+                    var result = await ScrapOffer(url);
+                    offers.Add(result);
+                }
+                catch (Exception ex)
+                {
+                    // log(ex);
+                }
             });
 
 

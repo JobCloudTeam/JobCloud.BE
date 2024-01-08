@@ -2,6 +2,11 @@
 {
     public class Offer
     {
-        public int Id { get; set; }
+        public string Name { get; set; }
+        public string CompanyName { get; set; }
+        public string SalaryUOP { get; set; }
+        public string SalaryB2B { get; set; }
+        public string BaseTechnology { get; set; }
+        public List<string> TechStack { get; set; }
     }
 }

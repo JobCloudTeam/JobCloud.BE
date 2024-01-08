@@ -1,10 +1,11 @@
-﻿using JobCloud.BE.ReadModel.Core.Model;
+﻿using JobCloud.BE.Domain.Models;
+using JobCloud.BE.ReadModel.Core.Model;
 using MediatR;
 
 namespace JobCloud.BE.ReadModel.Application.Request
 {
     public class GetJustJoinItOffersRequest : IRequest<IEnumerable<Offer>>
     {
-        public object Filters { get; }
+        public Filters Filters { get; set; }
     }
 }

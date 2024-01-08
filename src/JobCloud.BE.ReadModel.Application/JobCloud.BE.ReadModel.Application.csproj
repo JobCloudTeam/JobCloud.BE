@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dapper" Version="2.0.143" />
     <PackageReference Include="MediatR" Version="11.1.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
   </ItemGroup>
@@ -17,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\JobCloud.BE.Domain\JobCloud.BE.Domain.csproj" />
     <ProjectReference Include="..\JobCloud.BE.ReadModel.Core\JobCloud.BE.ReadModel.Core.csproj" />
     <ProjectReference Include="..\JobCloud.BE.ReadModel.Db\JobCloud.BE.ReadModel.Db.csproj" />
   </ItemGroup>

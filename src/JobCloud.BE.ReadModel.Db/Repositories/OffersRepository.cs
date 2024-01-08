@@ -1,26 +1,27 @@
-﻿using JobCloud.BE.ReadModel.Core.Model;
+﻿using Dapper;
+using JobCloud.BE.ReadModel.Core.Model;
+using JobCloud.BE.ReadModel.Db.Factories;
+using System.Data;
 
 namespace JobCloud.BE.ReadModel.Db.Repositories
 {
     public class OffersRepository : IOffersRepository
     {
-        //private readonly DbContext _dbContext;
+        private readonly DbContextFactory _dbContext;
 
-        //public OffersRepository(DbContext dbContext)
-        //{
-        //    _dbContext = dbContext;
-        //}
+        public OffersRepository(DbContextFactory dbContext)
+        {
+            _dbContext = dbContext;
+        }
         public async Task<IEnumerable<Offer>> GetJustJoinItOffers()
         {
-            //if (false)  //TODO: CREATE DATABASE
-            //{
-            //    using (var connection = _dbContext.CreateConnection())
-            //    {
-            //        return await connection.QueryAsync<Offer>("some query");
-            //        //mapping
-            //    }
-            //}
-            return GetMockedOffers();
+            using var connection = _dbContext.CreateConnection();
+
+            var offers = await connection.QueryAsync<Offer>(
+                Sql.Queries.GetJustJoinItOffers,
+                commandType: CommandType.Text);
+
+            return offers;
         }
 
         public async Task<IEnumerable<Offer>> GetNoFluffJobsOffers()
@@ -34,12 +35,6 @@ namespace JobCloud.BE.ReadModel.Db.Repositories
             var random = new Random();
             return new List<Offer>()
             {
-                new Offer{ Id = random.Next(0, 1000)},
-                new Offer{ Id = random.Next(0, 1000)},
-                new Offer{ Id = random.Next(0, 1000)},
-                new Offer{ Id = random.Next(0, 1000)},
-                new Offer{ Id = random.Next(0, 1000)},
-                new Offer{ Id = random.Next(0, 1000)}
             };
         }
     }
